@@ -11,7 +11,7 @@ const Header = () => {
         <p className='uppercase tracking-wide'>
           {formatDate} <span>Nr. 1.245</span>
         </p>
-        <p>Ediția de dimineață · 10 știri noi</p>
+        <p>Ediția de dimineață · 5 știri noi</p>
       </div>
       <hr className='max-w-full mx-5 border-black border' />
       <div className='text-center py-2 text-base font-light uppercase text-text-primary tracking-wide'>

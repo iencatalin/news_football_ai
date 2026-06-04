@@ -22,16 +22,14 @@ export const getNews = (req: Request, res: Response) => {
 export const initNews = async () => {
   try {
     cachedNews = await loadNews();
-    console.log(`📦 Loaded ${cachedNews.length} articles from JSON`);
   } catch (err) {
-    console.error('❌ Error loading JSON:', err);
+    console.error('Error loading JSON:', err);
     cachedNews = [];
   }
 };
 
 export const refreshNews = async () => {
   try {
-    console.log('🔄 Refresh started...');
     const articles = await fetchAllNews();
 
     const latestRaw = articles
@@ -49,20 +47,15 @@ export const refreshNews = async () => {
       const existing = existingMap.get(article.id);
 
       if (existing?.analysis) {
-        console.log(`⏭️ Skip Gemini pentru: ${article.title.slice(0, 40)}...`);
         updatedNewbies.push(existing);
         continue;
       }
 
-      console.log(
-        `🤖 Gemini API solicitat pentru: ${article.title.slice(0, 40)}...`,
-      );
       const analysis = await generateAnalysis(article);
 
       updatedNewbies.push({ ...article, analysis });
 
       if (i < latestRaw.length - 1) {
-        console.log('Waiting 4.5s for rate limit safety...');
         await new Promise((r) => setTimeout(r, 4500));
       }
     }
@@ -85,9 +78,6 @@ export const refreshNews = async () => {
       .slice(0, MAX_HISTORY);
 
     await saveNews(cachedNews);
-    console.log(
-      `✅ Refresh finalizat cu succes. Cache-ul total conține ${cachedNews.length} articole.`,
-    );
   } catch (err) {
     console.error('❌ Refresh error:', err);
   }

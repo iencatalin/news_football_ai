@@ -46,7 +46,7 @@ const ArticlePage = ({ articles }: Props) => {
       </p>
 
       {article.analysis && (
-        <section className='overflow-hidden rounded-2xl border-2 border-black shadow-[8px_8px_0px_0px_#000]'>
+        <section className='overflow-hidden rounded-xl border-2 border-black shadow-[8px_8px_0px_0px_#000]'>
           <div className='bg-yellow px-8 py-5'>
             <h2 className='font-ui text-xl font-bold flex items-center gap-2'>
               ✦ Analiza Ornitorincilor
