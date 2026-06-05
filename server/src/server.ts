@@ -1,9 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import cron from 'node-cron';
-
-dotenv.config();
 import newsRouter from './routes/news';
 import {
   getCachedCount,
@@ -12,7 +12,6 @@ import {
 } from './controllers/newsController';
 
 const app = express();
-
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());

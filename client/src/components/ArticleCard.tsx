@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { Article } from '../types';
 import { formatDate } from '../utils/formatDate';
+import { ArrowRight } from 'lucide-react';
 
 interface Props {
   article: Article;
@@ -40,8 +41,9 @@ const ArticleCard = ({ article }: Props) => {
           <span className='font-ui text-xs font-semibold'>
             {article.source}
           </span>
-          <button className='font-ui text-xs font-bold tracking-widest bg-black uppercase text-yellow px-4 py-2'>
-            Citește →
+          <button className='flex items-center gap-2 font-ui text-xs font-bold tracking-widest bg-black uppercase text-yellow px-4 py-2 cursor-pointer'>
+            Citește
+            <ArrowRight className='w-4 h-4' />
           </button>
         </div>
       </div>

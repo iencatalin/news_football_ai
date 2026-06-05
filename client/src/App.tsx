@@ -30,7 +30,7 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home articles={articles} />} />
-        <Route path='/articles' element={<Articles articles={articles} />} />
+        <Route path='/articles' element={<Articles />} />
         <Route
           path='/articles/:id'
           element={<ArticlePage articles={articles} />}

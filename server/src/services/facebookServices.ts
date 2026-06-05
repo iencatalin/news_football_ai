@@ -10,7 +10,7 @@ export interface ArticleWithAnalysis extends Article {
 const facebookQueue: ArticleWithAnalysis[] = [];
 let isProcessing = false;
 
-const POSTING_DELAY = 30 * 60 * 1000;
+const POSTING_DELAY = 10 * 60 * 1000;
 
 export const postToFacebook = async (article: ArticleWithAnalysis) => {
   if (!article.analysis) return;
@@ -24,7 +24,6 @@ export const postToFacebook = async (article: ArticleWithAnalysis) => {
 
 const processQueue = async () => {
   if (facebookQueue.length === 0) {
-    console.log('🏁 Coada Facebook este goală. Toate știrile au fost postate.');
     isProcessing = false;
     return;
   }
@@ -65,8 +64,14 @@ ${article.analysis?.prediction}
     });
 
     const data = await response.json();
-
-
+    if (data.error) {
+      console.error(
+        `Facebook error pentru "${article.title.slice(0, 40)}":`,
+        data.error.message,
+      );
+    } else {
+      console.log(`Postat pe Facebook: "${article.title.slice(0, 40)}"`);
+    }
   } catch (err) {
     console.error('Eroare de rețea la postarea pe Facebook:', err);
   }
