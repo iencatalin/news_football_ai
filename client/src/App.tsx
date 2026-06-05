@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import type { Article } from './types';
 import { getNews } from './services/api';
+import Navbar from './components/Navbar';
 
 function App() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -28,6 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      <Navbar articles={articles} />
       <Routes>
         <Route index element={<Home articles={articles} />} />
         <Route path='/articles' element={<Articles />} />
