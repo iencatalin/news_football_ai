@@ -15,7 +15,7 @@ const Articles = () => {
 
   if (loading) {
     return (
-      <div className='text-center py-20 text-xl font-light text-gray-500'>
+      <div className='text-center py-20 text-xl font-light text-gray-600'>
         Se încarcă știrile...
       </div>
     );
