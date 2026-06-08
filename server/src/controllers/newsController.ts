@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { fetchAllNews } from '../services/rssService';
 import { generateAnalysis } from '../services/geminiService';
-//* import { postToFacebook } from '../services/facebookService';
+import { postToFacebook } from '../services/facebookServices';
 import { loadNews, saveNews } from '../utils/newsStorage';
 import { Article, Analysis } from '../types';
 
@@ -58,7 +58,7 @@ export const refreshNews = async () => {
       const analysis = await generateAnalysis(article);
       const articleWithAnalysis = { ...article, analysis };
       updatedNewbies.push(articleWithAnalysis);
-      //*await postToFacebook(articleWithAnalysis);
+      await postToFacebook(articleWithAnalysis);
 
       if (i < latestRaw.length - 1) {
         await new Promise((r) => setTimeout(r, 4500));
