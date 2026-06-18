@@ -44,33 +44,46 @@ const processQueue = async () => {
 
 const executeFacebookPost = async (article: ArticleWithAnalysis) => {
   const message = `
-${article.title}
+ ${article.title.toUpperCase()}
 
+  OPINIA ORNITORINCULUI:
 ${article.analysis?.opinion}
 
+ PREDICȚIE DIN DETALII:
 ${article.analysis?.prediction}
 
-#fotbal #ornitorincii
-  `.trim();
+👉 Vezi tactica completă în cuib: https://news-football-ai.vercel.app
+
+---
+#ornitorincii #fotbal #analizafotbal #predictii #wc2026
+`.trim();
 
   try {
-    const response = await fetch(`https://graph.facebook.com/${PAGE_ID}/feed`, {
+    // 1. Punem ACCESS_TOKEN direct în URL-ul către Facebook
+    const url = `https://graph.facebook.com/v22.0/${PAGE_ID}/feed?access_token=${ACCESS_TOKEN}`;
+
+    const response = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // 2. În body trimitem DOAR mesajul text
       body: JSON.stringify({
-        message,
-        access_token: ACCESS_TOKEN,
+        message: message,
       }),
     });
 
-    const data = await response.json();
+    const data = (await response.json()) as any;
+
     if (data.error) {
       console.error(
         `Facebook error pentru "${article.title.slice(0, 40)}":`,
         data.error.message,
       );
     } else {
-      console.log(`Postat pe Facebook: "${article.title.slice(0, 40)}"`);
+      console.log(
+        `Postat pe Facebook: "${article.title.slice(0, 40)}" (ID: ${data.id})`,
+      );
     }
   } catch (err) {
     console.error('Eroare de rețea la postarea pe Facebook:', err);
