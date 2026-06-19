@@ -44,22 +44,19 @@ const processQueue = async () => {
 
 const executeFacebookPost = async (article: ArticleWithAnalysis) => {
   const message = `
- ${article.title.toUpperCase()}
+ ⚽ **${article.title.toUpperCase()}** ⚽
 
-  OPINIA ORNITORINCULUI:
+  **OPINIA ORNITORINCULUI:**
 ${article.analysis?.opinion}
 
- PREDICȚIE DIN DETALII:
+  **PREDICȚIE:**
 ${article.analysis?.prediction}
-
-👉 Vezi tactica completă în cuib: https://news-football-ai.vercel.app
 
 ---
 #ornitorincii #fotbal #analizafotbal #predictii #wc2026
 `.trim();
 
   try {
-    // 1. Punem ACCESS_TOKEN direct în URL-ul către Facebook
     const url = `https://graph.facebook.com/v22.0/${PAGE_ID}/feed?access_token=${ACCESS_TOKEN}`;
 
     const response = await fetch(url, {
@@ -67,7 +64,7 @@ ${article.analysis?.prediction}
       headers: {
         'Content-Type': 'application/json',
       },
-      // 2. În body trimitem DOAR mesajul text
+
       body: JSON.stringify({
         message: message,
       }),
