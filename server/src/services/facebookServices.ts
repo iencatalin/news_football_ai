@@ -44,16 +44,15 @@ const processQueue = async () => {
 
 const executeFacebookPost = async (article: ArticleWithAnalysis) => {
   const message = `
- ⚽ **${article.title.toUpperCase()}** ⚽
+ 
 
-  **OPINIA ORNITORINCULUI:**
+  OPINIA ORNITORINCULUI:
 ${article.analysis?.opinion}
 
-  **PREDICȚIE:**
 ${article.analysis?.prediction}
 
 ---
-#ornitorincii #fotbal #analizafotbal #predictii #wc2026
+#ornitorincii #fotbal #analizafotbal #predicții #oracolulAI #FotbalEntertainment #ComediePeTeren #AI_DeCapulMeu #UmorInGhete
 `.trim();
 
   try {
