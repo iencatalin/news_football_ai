@@ -1,8 +1,8 @@
 # 🦆 Ornitorincii
 
-> _"Nu pe vorbe, pe fapte, adică trebuie să știi ce să vorbești"_
-
 An AI-powered Romanian football news aggregator that fetches articles from multiple RSS feeds, generates sarcastic fan-style analysis using Google Gemini, and automatically posts to Facebook.
+
+Built as a personal learning project to practice and revisit React, TypeScript, Node.js, and third-party API integrations in a real-world context.
 
 **Live:** [news-football-ai.vercel.app](https://news-football-ai.vercel.app)
 
@@ -29,4 +29,4 @@ An AI-powered Romanian football news aggregator that fetches articles from multi
 | RSS parsing     | rss-parser                           |
 | Scheduling      | node-cron                            |
 | Frontend deploy | Vercel                               |
-| Backend deploy  | Railway                              |
+| Backend deploy  | Render                               |
