@@ -1,8 +1,7 @@
-export const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString('ro-Ro', {
+export const formatDate = (date: Date | string) => {
+  return new Date(date).toLocaleDateString('ro-RO', {
     day: 'numeric',
     month: 'long',
-    hour: '2-digit',
-    minute: '2-digit',
+    year: 'numeric',
   });
 };

@@ -25,24 +25,6 @@ const Navbar = ({ articles }: Props) => {
                 Toate știrile
               </Link>
             </li>
-
-            <li>
-              <Link
-                to='/opinions'
-                className='transition-colors hover:text-yellow'
-              >
-                Opinii
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to='/analysis'
-                className='transition-colors hover:text-yellow'
-              >
-                Analize
-              </Link>
-            </li>
           </ul>
         </div>
       </nav>

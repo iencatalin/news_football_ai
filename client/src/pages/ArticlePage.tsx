@@ -48,7 +48,7 @@ const ArticlePage = ({ articles }: Props) => {
       {article.analysis && (
         <section className='overflow-hidden rounded-xl border-2 border-black shadow-[8px_8px_0px_0px_#000]'>
           <div className='bg-yellow px-8 py-5'>
-            <h2 className='font-ui text-xl font-bold flex items-center gap-2'>
+            <h2 className='font-ui text-lg md:text-xl font-bold flex items-center gap-2'>
               ✦ Analiza Ornitorincilor
             </h2>
 
@@ -57,13 +57,13 @@ const ArticlePage = ({ articles }: Props) => {
             </p>
           </div>
 
-          <div className='bg-text-secondary text-white p-8 space-y-10'>
+          <div className='bg-text-secondary text-white p-4 md:p-8 space-y-10'>
             <div>
               <p className='font-ui text-xs uppercase tracking-widest text-yellow mb-3'>
                 📊 De știut
               </p>
 
-              <p className='text-xl leading-relaxed'>
+              <p className='text-lg md:text-xl leading-relaxed'>
                 {article.analysis.stats}
               </p>
             </div>
@@ -73,7 +73,7 @@ const ArticlePage = ({ articles }: Props) => {
                 💭 Opinia ornitorincilor
               </p>
 
-              <p className='text-xl italic leading-relaxed'>
+              <p className='text-lg md:text-xl italic leading-relaxed'>
                 "{article.analysis.opinion}"
               </p>
             </div>
@@ -83,7 +83,7 @@ const ArticlePage = ({ articles }: Props) => {
                 🔮 Predicție
               </p>
 
-              <p className='text-xl leading-relaxed'>
+              <p className='text-lg md:text-xl leading-relaxed'>
                 {article.analysis.prediction}
               </p>
             </div>
@@ -95,7 +95,7 @@ const ArticlePage = ({ articles }: Props) => {
         Citește articolul complet pe {article.source}
         <a
           href={article.sourceUrl}
-          className='bg-yellow text-text-secondary font-semibold px-3 py-2 hover:opacity-70 transition cursor-pointer'
+          className='bg-yellow text-text-secondary font-semibold px-1 md:px-3 py-1 md:py-2 hover:opacity-70 transition cursor-pointer'
           target='_blank'
           rel='noopener noreferrer'
         >
