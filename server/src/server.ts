@@ -3,6 +3,7 @@ dotenv.config();
 
 import express from 'express';
 import cors from 'cors';
+import cron from 'node-cron';
 import newsRouter from './routes/news';
 import {
   getCachedCount,
@@ -21,6 +22,17 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/api/news', newsRouter);
+
+cron.schedule(
+  '0 7,19 * * *',
+  () => {
+    console.log('Cron job pornit:', new Date().toISOString());
+    refreshNews();
+  },
+  {
+    timezone: 'Europe/Bucharest',
+  },
+);
 
 const start = async () => {
   await initNews();
