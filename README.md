@@ -1,6 +1,6 @@
 # 🦆 Ornitorincii
 
-An AI-powered Romanian football news aggregator that fetches articles from multiple RSS feeds, generates sarcastic fan-style analysis using Google Gemini, and automatically posts to Facebook.
+An AI-powered Romanian sport news aggregator that fetches articles from multiple RSS feeds, generates sarcastic fan-style analysis using Google Gemini, and automatically posts to Facebook.
 
 Built as a personal learning project to practice and revisit React, TypeScript, Node.js, and third-party API integrations in a real-world context.
 
@@ -10,8 +10,7 @@ Built as a personal learning project to practice and revisit React, TypeScript, 
 
 ## What it does
 
-- Fetches football news twice a day (7:00 AM and 7:00 PM Romanian time) from ProSport, Digisport, and Sport.ro
-- Filters out non-football articles using a keyword whitelist
+- Fetches sport news twice a day (7:00 AM and 7:00 PM Romanian time) from ProSport, Digisport, and Sport.ro
 - Generates AI analysis for each article using Google Gemini — written like a passionate fan at a bar, not a journalist
 - Each analysis includes a stats/context section, an opinion, and a prediction
 - Automatically posts the analysis to the Ornitorincii Facebook page
